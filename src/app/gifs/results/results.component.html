@@ -1,1 +1,26 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus id eos deserunt dolorum? Explicabo, quod. Officia qui natus facere laboriosam provident magni dignissimos quidem quos, porro maiores distinctio corporis esse?
+<!--
+<ul>
+    <li *ngFor="let gif of results">
+        {{ gif.title }}
+    </li>
+</ul> -->
+
+<div class="row">
+    <div *ngFor="let gif of results" 
+          class="col-md-4 col-sm-6">
+
+        <div class="card">
+            <img [src]="gif.images.downsized_medium.url" 
+                 [alt]="gif.title"
+                 class="card-image-top"     
+            >
+            <div class="card-body">
+                <p class="card-text">
+                    {{ gif.title }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+

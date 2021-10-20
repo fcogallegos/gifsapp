@@ -10,6 +10,8 @@ export class GifsService {
   private apiKey: string = 'GXvcJfEFXeFGBm4Uvj8by9bMwDpDGb8F';
   private _history: string[] = [];
 
+  public results: any[] = [];
+
   get history() {
     return [...this._history];
   }
@@ -25,9 +27,10 @@ export class GifsService {
       this._history = this._history.splice(0,10);
     }
 
-    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=GXvcJfEFXeFGBm4Uvj8by9bMwDpDGb8F&q=cars')
+    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=GXvcJfEFXeFGBm4Uvj8by9bMwDpDGb8F&q=${query}`)
       .subscribe( (resp: any) => {
         console.log(resp.data);
+        this.results = resp.data;
       });
     
   }
