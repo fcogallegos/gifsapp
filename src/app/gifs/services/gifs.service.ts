@@ -22,6 +22,8 @@ export class GifsService {
     if( localStorage.getItem('history')) {
       this._history = JSON.parse(localStorage.getItem('history')! )
     }
+
+    this.results = JSON.parse(localStorage.getItem('results')!) || [];
   }
 
   searchGifs( query: string ) {
@@ -39,6 +41,7 @@ export class GifsService {
       .subscribe( (resp) => {
         console.log(resp.data);
         this.results = resp.data;
+        localStorage.setItem('results', JSON.stringify( this.results ));
       });
     
   }
