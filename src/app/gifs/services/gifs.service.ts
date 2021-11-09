@@ -43,11 +43,11 @@ export class GifsService {
           .set('limit', '10')
           .set('q', query);
 
-          console.log(params.toString());
+          //console.log(params.toString());
 
     this.http.get<SearchGifsResponse>(`${this.serviceUrl}/search`, { params })
       .subscribe( (resp) => {
-        console.log(resp.data);
+        //console.log(resp.data);
         this.results = resp.data;
         localStorage.setItem('results', JSON.stringify( this.results ));
       });
